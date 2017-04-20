@@ -10,17 +10,17 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-public class LoginActivity extends AppCompatActivity {
+public class UserLoginActivity extends AppCompatActivity {
 
     TextView tvUserSignIn;
 
     Typeface typeFace;
 
-    DatabaseHelper helper = new DatabaseHelper(this);
+    UserDatabaseHelper helper = new UserDatabaseHelper(this);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login);
+        setContentView(R.layout.userlogin);
 
         typeFace = Typeface.createFromAsset(getAssets(), "fonts/ShadedLarch.ttf");
         tvUserSignIn = (TextView) findViewById(R.id.tvUserSignIn);
@@ -40,13 +40,13 @@ public class LoginActivity extends AppCompatActivity {
             String password = helper.searchPass(str);
             if(pass.equals(password))
             {
-                Intent i = new Intent(LoginActivity.this, Display.class);
+                Intent i = new Intent(UserLoginActivity.this, UserDisplay.class);
                 i.putExtra("Username",str);
                 startActivity(i);
             }
             else
             {
-                Toast temp = Toast.makeText(LoginActivity.this, "Username and password don't match!", Toast.LENGTH_SHORT);
+                Toast temp = Toast.makeText(UserLoginActivity.this, "Username and password don't match!", Toast.LENGTH_SHORT);
                 temp.show();
             }
 
@@ -55,9 +55,9 @@ public class LoginActivity extends AppCompatActivity {
 
 
         }
-        if(v.getId() == R.id.Bsignup)
+        if(v.getId() == R.id.Bssignup)
         {
-            Intent i = new Intent(LoginActivity.this, SignUp.class);
+            Intent i = new Intent(UserLoginActivity.this, UserSignUp.class);
             startActivity(i);
         }
     }

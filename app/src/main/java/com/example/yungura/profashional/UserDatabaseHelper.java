@@ -6,7 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-public class DatabaseHelper extends SQLiteOpenHelper {
+public class UserDatabaseHelper extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "contacts.db";
@@ -19,7 +19,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     SQLiteDatabase db;
     private static final String TABLE_CREATE = "create table contacts (id integer primary key not null , " +
             "name text not null , email text not null , uname text not null , pass text not null);";
-    public DatabaseHelper(Context context)
+    public UserDatabaseHelper(Context context)
     {
         super(context , DATABASE_NAME , null , DATABASE_VERSION);
     }
@@ -31,7 +31,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         this.db = db;
     }
 
-    public void insertContact(Contact c)
+    public void insertContact(UserContact c)
     {
         db = this.getReadableDatabase();
         ContentValues values = new ContentValues();

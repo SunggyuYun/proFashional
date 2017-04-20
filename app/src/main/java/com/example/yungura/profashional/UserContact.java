@@ -1,6 +1,6 @@
 package com.example.yungura.profashional;
 
-public class Contact {
+public class UserContact {
     String name, email, uname, pass;
 
     public void setName(String name)

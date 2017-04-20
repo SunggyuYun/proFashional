@@ -113,14 +113,14 @@
             android:id="@+id/TFpass2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/Bsignupbutton"
+            android:layout_above="@+id/Bssignupbutton"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:ems="10"
             android:inputType="textPassword" />
 
         <Button
-            android:id="@+id/Bsignupbutton"
+            android:id="@+id/Bssignupbutton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"

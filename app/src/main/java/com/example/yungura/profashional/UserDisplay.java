@@ -5,11 +5,11 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.widget.TextView;
 
-public class Display extends Activity {
+public class UserDisplay extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.display);
+        setContentView(R.layout.userdisplay);
         String username = getIntent().getStringExtra("Username");
 
         TextView tv = (TextView)findViewById(R.id.TVusername);

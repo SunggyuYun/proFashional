@@ -26,7 +26,15 @@ public class Hompage extends AppCompatActivity {
     {
         if(v.getId() == R.id.bUser)
         {
-            Intent i = new Intent(Hompage.this, LoginActivity.class);
+            Intent i = new Intent(Hompage.this, UserLoginActivity.class);
+            startActivity(i);
+        }
+    }
+    public void onStylistClick(View v)
+    {
+        if(v.getId() == R.id.bStylist)
+        {
+            Intent i = new Intent(Hompage.this, StylistLoginActivity.class);
             startActivity(i);
         }
     }

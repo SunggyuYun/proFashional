@@ -9,19 +9,19 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import static com.example.yungura.profashional.R.id.Bsignupbutton;
+import static com.example.yungura.profashional.R.id.Bssignupbutton;
 
-public class SignUp extends Activity {
+public class UserSignUp extends Activity {
 
     TextView tvUserSignUp;
 
     Typeface typeFace;
-    DatabaseHelper helper = new DatabaseHelper(this);
+    UserDatabaseHelper helper = new UserDatabaseHelper(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.signup);
+        setContentView(R.layout.usersignup);
 
         typeFace = Typeface.createFromAsset(getAssets(), "fonts/ShadedLarch.ttf");
         tvUserSignUp = (TextView) findViewById(R.id.tvUserSignUp);
@@ -30,7 +30,7 @@ public class SignUp extends Activity {
 
     public void onSignUpClick(View v)
     {
-        if(v.getId() == Bsignupbutton)
+        if(v.getId() == Bssignupbutton)
         {
             EditText name = (EditText)findViewById(R.id.TFname);
             EditText email = (EditText)findViewById(R.id.TFemail);
@@ -47,13 +47,13 @@ public class SignUp extends Activity {
             if(!pass1str.equals(pass2str))
             {
                 //popup msg
-                Toast pass = Toast.makeText(SignUp.this, "Passwords don't match!", Toast.LENGTH_SHORT);
+                Toast pass = Toast.makeText(UserSignUp.this, "Passwords don't match!", Toast.LENGTH_SHORT);
                 pass.show();
             }
             else
             {
                 //insert the details in database
-                Contact c = new Contact();
+                UserContact c = new UserContact();
                 c.setName(namestr);
                 c.setEmail(emailstr);
                 c.setUname(unamestr);
@@ -63,9 +63,9 @@ public class SignUp extends Activity {
             }
 
         }
-        if(v.getId() == R.id.Bsignupbutton)
+        if(v.getId() == R.id.Bssignupbutton)
         {
-            Intent i = new Intent(SignUp.this, LoginActivity.class);
+            Intent i = new Intent(UserSignUp.this, UserLoginActivity.class);
             startActivity(i);
         }
 
